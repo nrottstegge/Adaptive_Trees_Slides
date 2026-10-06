@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 const props = defineProps({
   headerImage: {
     type: String,
@@ -8,6 +9,12 @@ const props = defineProps({
   author: { type: String, default: '' },
 })
 const base = import.meta.env.BASE_URL
+// Public assets must resolve beneath the deployment base, including on deep links.
+const headerImageUrl = computed(() => {
+  const image = props.headerImage
+  if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(image)) return image
+  return base + image.replace(/^\/+/, '')
+})
 </script>
 
 <template>
@@ -15,7 +22,7 @@ const base = import.meta.env.BASE_URL
     <!-- Background Bands -->
     <div class="band-top">
       <div class="image-container">
-         <img :src="props.headerImage" alt="" />
+         <img :src="headerImageUrl" alt="" />
       </div>
     </div>
     <div class="band-middle">

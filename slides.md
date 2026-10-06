@@ -12,7 +12,7 @@ fonts:
 transition: fade
 mdc: true
 layout: fzj-title
-headerImage: ../header_octree.svg
+headerImage: header_octree.svg
 author: Nils Rottstegge | Jülich Supercomputing Centre (JSC)
 date: 05. October 2026
 
@@ -20,10 +20,6 @@ defaults:
   layout: fzj-content
   aspectRatio: 16/9
 ---
-
-<script setup>
-const base = import.meta.env.BASE_URL
-</script>
 
 # Adaptive Trees on a GPU
 ## Efficient GPU-aware Adaptive Tree Algorithm for the Fast Multipole Method
@@ -319,6 +315,10 @@ Same input, same two timed phases — this work additionally delivers **NF**, **
 
 ---
 
+<script setup>
+const base = import.meta.env.BASE_URL
+</script>
+
 # Runtime across implementations
 
 <div class="flex justify-center mt-1">
@@ -328,6 +328,10 @@ Same input, same two timed phases — this work additionally delivers **NF**, **
 ---
 clicks: 2
 ---
+
+<script setup>
+const base = import.meta.env.BASE_URL
+</script>
 
 # Interactive tree viewer
 
@@ -347,6 +351,10 @@ Aggregate metrics can hide **why** two trees differ in size or runtime — the v
 ---
 clicks: 1
 ---
+
+<script setup>
+const base = import.meta.env.BASE_URL
+</script>
 
 # Octree benchmarks
 
@@ -372,6 +380,10 @@ clicks: 1
 <div style="width: 100%; height: 250px"><FzjTitleArt /></div>
 
 ---
+
+<script setup>
+const base = import.meta.env.BASE_URL
+</script>
 
 # Full pipeline runtime: adaptive octree + FMM
 
@@ -430,6 +442,10 @@ Same K format — every split halves the **longest side** of the box and the key
 <div class="illus text-center">toy 2D binary tree on a 2 : 1 domain · every split halves the current longest side · keys at coarse resolution (0 … 64) · hover a leaf</div>
 
 ---
+
+<script setup>
+const base = import.meta.env.BASE_URL
+</script>
 
 # KDTree3D benchmarks
 
