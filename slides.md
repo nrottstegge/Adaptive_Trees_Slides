@@ -359,9 +359,9 @@ const base = import.meta.env.BASE_URL
 # Octree benchmarks
 
 <BenchPair :step="$clicks" setup="1" :datasets="[
-  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: base + 'gifs/coulomb_explosion.gif', particles: '114 537' },
-  { key: 'flyby', name: 'Flyby', gif: base + 'gifs/flyby.gif', particles: '512 002' },
-  { key: 'cluster_simulation', name: 'Cluster simulation', gif: base + 'gifs/cluster_simulation.gif', particles: '10 000' },
+  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: base + 'gifs/coulomb_explosion.mp4', particles: '114 537' },
+  { key: 'flyby', name: 'Flyby', gif: base + 'gifs/flyby.mp4', particles: '512 002' },
+  { key: 'cluster_simulation', name: 'Cluster simulation', gif: base + 'gifs/cluster_simulation.mp4', particles: '10 000' },
 ]" :variants="[
   { label: 'Octree / LeafCount', color: 'var(--c-oct-leaf)', file: k => base + 'bench/' + k + '_octree_leafcount.webp' },
   { label: 'Octree / NFCount', color: 'var(--c-oct-nf)', file: k => base + 'bench/' + k + '_octree_nfcount.webp' },
@@ -450,9 +450,9 @@ const base = import.meta.env.BASE_URL
 # KDTree3D benchmarks
 
 <BenchPair :step="$clicks" setup="1" :datasets="[
-  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: base + 'gifs/coulomb_explosion.gif', particles: '114 537' },
-  { key: 'flyby', name: 'Flyby', gif: base + 'gifs/flyby.gif', particles: '512 002' },
-  { key: 'cluster_simulation', name: 'Cluster simulation', gif: base + 'gifs/cluster_simulation.gif', particles: '10 000' },
+  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: base + 'gifs/coulomb_explosion.mp4', particles: '114 537' },
+  { key: 'flyby', name: 'Flyby', gif: base + 'gifs/flyby.mp4', particles: '512 002' },
+  { key: 'cluster_simulation', name: 'Cluster simulation', gif: base + 'gifs/cluster_simulation.mp4', particles: '10 000' },
 ]" :variants="[
   { label: 'Octree vs KDTree3D', color: 'var(--c-ink)', file: k => base + 'bench/' + k + '_octree_vs_kdtree3d.webp' },
 ]" />
