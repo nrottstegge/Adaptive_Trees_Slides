@@ -3,6 +3,7 @@
 defineProps({
   cols: { type: String, default: '1fr 1fr' },
 })
+const base = import.meta.env.BASE_URL
 </script>
 
 <template>
@@ -54,7 +55,7 @@ defineProps({
       <div class="logo-wrapper">
         <slot name="logo">
           <!-- Default fallback if no logo slot is provided -->
-          <span class="default-logo"><img src="/fzj.svg" class="logo-img" /></span>
+          <span class="default-logo"><img :src="`${base}fzj.svg`" class="logo-img" /></span>
         </slot>
       </div>
     </div>

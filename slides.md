@@ -21,6 +21,10 @@ defaults:
   aspectRatio: 16/9
 ---
 
+<script setup>
+const base = import.meta.env.BASE_URL
+</script>
+
 # Adaptive Trees on a GPU
 ## Efficient GPU-aware Adaptive Tree Algorithm for the Fast Multipole Method
 
@@ -318,7 +322,7 @@ Same input, same two timed phases — this work additionally delivers **NF**, **
 # Runtime across implementations
 
 <div class="flex justify-center mt-1">
-  <div style="width: 620px"><ZoomFig src="/bench/cluster_implementation_runtime.webp" height="395px" title="Cluster: tree update + view construction per step" /></div>
+  <div style="width: 620px"><ZoomFig :src="`${base}bench/cluster_implementation_runtime.webp`" height="395px" title="Cluster: tree update + view construction per step" /></div>
 </div>
 
 ---
@@ -328,9 +332,9 @@ clicks: 2
 # Interactive tree viewer
 
 <ViewerTour :step="$clicks" :scenes="[
-  { url: '/viewer/scene-export-9.html', dataset: 'Flyby', short: 'first snapshot', note: 'very beginning of the run', particles: '512 002' },
-  { url: '/viewer/scene-export-8.html', dataset: 'Flyby', short: 'evolved', note: 'same run, later snapshot — the tree follows the particles', particles: '512 002', particlesNote: 'as in the first snapshot' },
-  { url: '/viewer/scene-export-6.html', dataset: 'Dense halo', short: 'subsample', note: 'subsample of the halo dataset', particles: '25 600 000', particlesNote: 'full dataset; a subsample is shown' },
+  { url: base + 'viewer/scene-export-9.html', dataset: 'Flyby', short: 'first snapshot', note: 'very beginning of the run', particles: '512 002' },
+  { url: base + 'viewer/scene-export-8.html', dataset: 'Flyby', short: 'evolved', note: 'same run, later snapshot — the tree follows the particles', particles: '512 002', particlesNote: 'as in the first snapshot' },
+  { url: base + 'viewer/scene-export-6.html', dataset: 'Dense halo', short: 'subsample', note: 'subsample of the halo dataset', particles: '25 600 000', particlesNote: 'full dataset; a subsample is shown' },
 ]">
   <div class="msg tiny">
 
@@ -347,12 +351,12 @@ clicks: 1
 # Octree benchmarks
 
 <BenchPair :step="$clicks" setup="1" :datasets="[
-  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: '/gifs/coulomb_explosion.gif', particles: '114 537' },
-  { key: 'flyby', name: 'Flyby', gif: '/gifs/flyby.gif', particles: '512 002' },
-  { key: 'cluster_simulation', name: 'Cluster simulation', gif: '/gifs/cluster_simulation.gif', particles: '10 000' },
+  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: base + 'gifs/coulomb_explosion.gif', particles: '114 537' },
+  { key: 'flyby', name: 'Flyby', gif: base + 'gifs/flyby.gif', particles: '512 002' },
+  { key: 'cluster_simulation', name: 'Cluster simulation', gif: base + 'gifs/cluster_simulation.gif', particles: '10 000' },
 ]" :variants="[
-  { label: 'Octree / LeafCount', color: 'var(--c-oct-leaf)', file: k => '/bench/' + k + '_octree_leafcount.webp' },
-  { label: 'Octree / NFCount', color: 'var(--c-oct-nf)', file: k => '/bench/' + k + '_octree_nfcount.webp' },
+  { label: 'Octree / LeafCount', color: 'var(--c-oct-leaf)', file: k => base + 'bench/' + k + '_octree_leafcount.webp' },
+  { label: 'Octree / NFCount', color: 'var(--c-oct-nf)', file: k => base + 'bench/' + k + '_octree_nfcount.webp' },
 ]" />
 
 
@@ -372,7 +376,7 @@ clicks: 1
 # Full pipeline runtime: adaptive octree + FMM
 
 <div class="flex justify-center">
-  <div style="width: 440px"><ZoomFig src="/bench/full_pipeline_dense_vs_newest.webp" height="395px" title="Full pipeline: dense tree vs. newest adaptive tree" /></div>
+  <div style="width: 440px"><ZoomFig :src="`${base}bench/full_pipeline_dense_vs_newest.webp`" height="395px" title="Full pipeline: dense tree vs. newest adaptive tree" /></div>
 </div>
 
 ---
@@ -430,11 +434,11 @@ Same K format — every split halves the **longest side** of the box and the key
 # KDTree3D benchmarks
 
 <BenchPair :step="$clicks" setup="1" :datasets="[
-  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: '/gifs/coulomb_explosion.gif', particles: '114 537' },
-  { key: 'flyby', name: 'Flyby', gif: '/gifs/flyby.gif', particles: '512 002' },
-  { key: 'cluster_simulation', name: 'Cluster simulation', gif: '/gifs/cluster_simulation.gif', particles: '10 000' },
+  { key: 'coulomb_explosion', name: 'Coulomb explosion', gif: base + 'gifs/coulomb_explosion.gif', particles: '114 537' },
+  { key: 'flyby', name: 'Flyby', gif: base + 'gifs/flyby.gif', particles: '512 002' },
+  { key: 'cluster_simulation', name: 'Cluster simulation', gif: base + 'gifs/cluster_simulation.gif', particles: '10 000' },
 ]" :variants="[
-  { label: 'Octree vs KDTree3D', color: 'var(--c-ink)', file: k => '/bench/' + k + '_octree_vs_kdtree3d.webp' },
+  { label: 'Octree vs KDTree3D', color: 'var(--c-ink)', file: k => base + 'bench/' + k + '_octree_vs_kdtree3d.webp' },
 ]" />
 
 
